@@ -1,41 +1,42 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { global } from "styled-jsx/css";
 import Link from "next/link";
 
 import React, { ReactNode } from "react";
 
-const BaseLayout = ({ children }: { children: ReactNode }) => {
+const AdminLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html>
       <body>
         <div className="min-h-screen flex flex-col">
-          {/* Header */}
-          <header className="bg-purple-800 text-white p-4">
+          {/* Admin Header */}
+          <header className="bg-blue-800 text-white p-4">
+            <h1>Admin Panel</h1>
             <nav>
               <ul className="flex space-x-4">
                 <li>
-                  <Link href="/">Home</Link>
+                  <Link href="/admin/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                  <Link href="/about">About</Link>
+                  <Link href="/admin/users">Users</Link>
                 </li>
                 <li>
-                  <Link href="/contact">Contact</Link>
+                  <Link href="/admin/settings">Settings</Link>
                 </li>
               </ul>
             </nav>
           </header>
           {/* Main */}
           <div className="flex flex-1">
-            <aside className="bg-purple-200 w-64 p-4">
+            <aside className="bg-blue-200 w-64 p-4">
               <ul>
                 <li>
                   <Link
                     href="/category/technology"
                     className="block py-2 hover:bg-purple-300"
                   >
-                    Technology
+                    Dashboard
                   </Link>
                 </li>
                 <li>
@@ -43,7 +44,7 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
                     href="/category/design"
                     className="block py-2 hover:bg-purple-300"
                   >
-                    Design
+                    Manage Users
                   </Link>
                 </li>
                 <li>
@@ -51,7 +52,7 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
                     href="/category/business"
                     className="block py-2 hover:bg-purple-300"
                   >
-                    Business
+                    Setings
                   </Link>
                 </li>
               </ul>
@@ -73,4 +74,4 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default BaseLayout;
+export default AdminLayout;
